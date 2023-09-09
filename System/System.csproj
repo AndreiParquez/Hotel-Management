@@ -1,0 +1,624 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Radzen.Blazor.4.15.7\build\Radzen.Blazor.props" Condition="Exists('..\packages\Radzen.Blazor.4.15.7\build\Radzen.Blazor.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F926072C-7397-485D-A7DD-DDBE49A1777E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>System</RootNamespace>
+    <AssemblyName>System</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.21.9.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.21.9\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.Charts.WinForms, Version=1.0.8.0, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.Charts.WinForms.1.0.8\lib\net472\Guna.Charts.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI2, Version=2.0.4.4, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.4\lib\net472\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.3.5.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.1.3.5\lib\net462\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.3.5.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.Streams.1.3.5\lib\net462\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.8.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Hash.xxHash.1.0.8\lib\net462\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialSkin, Version=2.3.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialSkin.2.2.3.1\lib\net461\MaterialSkin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.1.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.1.0\lib\net462\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.Charting.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Core.WinForms, Version=22.2460.10.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Core.WinForms.22.2.10\lib\net46\Syncfusion.Core.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Licensing, Version=22.2460.10.0, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Licensing.22.2.10\lib\net46\Syncfusion.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfInput.WinForms, Version=22.2460.10.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.SfInput.WinForms.22.2.10\lib\net46\Syncfusion.SfInput.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Shared.Base, Version=22.2460.10.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Shared.Base.22.2.10\lib\net46\Syncfusion.Shared.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.4.4.1\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=7.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.7.0.2\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Pipelines, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.5.0.2\lib\net461\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZstdSharp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=8d151af33a4ad5cf, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZstdSharp.Port.0.7.1\lib\net461\ZstdSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddCategory.Designer.cs">
+      <DependentUpon>AddCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddItem.Designer.cs">
+      <DependentUpon>AddItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminCreate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminCreate.Designer.cs">
+      <DependentUpon>AdminCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="alertSuccess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="alertSuccess.Designer.cs">
+      <DependentUpon>alertSuccess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="confirm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="confirm.Designer.cs">
+      <DependentUpon>confirm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboardfrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboardfrm.Designer.cs">
+      <DependentUpon>Dashboardfrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="delete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="delete.Designer.cs">
+      <DependentUpon>delete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditProductForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditProductForm.Designer.cs">
+      <DependentUpon>EditProductForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FailRev.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FailRev.Designer.cs">
+      <DependentUpon>FailRev.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="laundrySide.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="laundrySide.Designer.cs">
+      <DependentUpon>laundrySide.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Loading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Loading.Designer.cs">
+      <DependentUpon>Loading.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="loginfail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="loginfail.Designer.cs">
+      <DependentUpon>loginfail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginFrontDesk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginFrontDesk.Designer.cs">
+      <DependentUpon>LoginFrontDesk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="mdiProperties.cs" />
+    <Compile Include="Menufrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menufrm.Designer.cs">
+      <DependentUpon>Menufrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="reservation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reservation.Designer.cs">
+      <DependentUpon>reservation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReservationSide.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReservationSide.Designer.cs">
+      <DependentUpon>ReservationSide.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RestoInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RestoInventory.Designer.cs">
+      <DependentUpon>RestoInventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Room.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Room.Designer.cs">
+      <DependentUpon>Room.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Succesrev.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Succesrev.Designer.cs">
+      <DependentUpon>Succesrev.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl1.Designer.cs">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddCategory.resx">
+      <DependentUpon>AddCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddItem.resx">
+      <DependentUpon>AddItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminCreate.resx">
+      <DependentUpon>AdminCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="alertSuccess.resx">
+      <DependentUpon>alertSuccess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="confirm.resx">
+      <DependentUpon>confirm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboardfrm.resx">
+      <DependentUpon>Dashboardfrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="delete.resx">
+      <DependentUpon>delete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditProductForm.resx">
+      <DependentUpon>EditProductForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FailRev.resx">
+      <DependentUpon>FailRev.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="laundrySide.resx">
+      <DependentUpon>laundrySide.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Loading.resx">
+      <DependentUpon>Loading.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="loginfail.resx">
+      <DependentUpon>loginfail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginFrontDesk.resx">
+      <DependentUpon>LoginFrontDesk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menufrm.resx">
+      <DependentUpon>Menufrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reservation.resx">
+      <DependentUpon>reservation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReservationSide.resx">
+      <DependentUpon>ReservationSide.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RestoInventory.resx">
+      <DependentUpon>RestoInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Room.resx">
+      <DependentUpon>Room.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Succesrev.resx">
+      <DependentUpon>Succesrev.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl1.resx">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle-xmark %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus-circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus-circle %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu-burger.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chart-histogram.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder-open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder-open %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chart-histogram %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home %284%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bullet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onay2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cross-logo-letter-x.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cross-logo-letter-x1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\room-key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\room-key %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bellboy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\time.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\money.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\room-key %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cloudy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\laundry-service.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wine-glass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\slippers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ezgif.com-video-to-gif.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cloud-sun %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cloud-sun %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\invoice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\billing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\information-desk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cosmopolitan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cleaning-cart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\v915-techi-035-d-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bed %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-post.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\up-arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow-down-sign-to-navigate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\layout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\layout %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\list %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\list %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addition.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\admin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check-out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\notification.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\recepcionist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check_mark_and_cross_circles.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wrong.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\giphy.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\!.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reservation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reservation %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bed %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hotel-service.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\management.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inventory.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bed %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flip-flops.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checkin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checkin %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inventory-management.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inventory %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\double-bed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check-in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check-in %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dollar.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Radzen.Blazor.4.15.7\build\Radzen.Blazor.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Radzen.Blazor.4.15.7\build\Radzen.Blazor.props'))" />
+  </Target>
+</Project>
